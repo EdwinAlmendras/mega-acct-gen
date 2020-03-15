@@ -18,8 +18,14 @@ const puppeteer = require('puppeteer');
     console.log(await page.url())
 
 
-    //get download file
-    //like html constantly sending info
+    const [response] = await Promise.all([
+      page.waitForNavigation(waitOptions),
+      page.click(selector, clickOptions),
+    ]);
+
+
+    console.log(await response.url())
+
 
     /*
 page.$eval('title', (element) => {
