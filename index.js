@@ -22,6 +22,8 @@ var bodyFormData = new FormData();
 
     bodyFormData.append('file', file);
 
+    console.log(bodyFormData)
+
     axios({
       method: 'post',
       url: 'http://dl.free.fr/getfile.pl',
@@ -30,6 +32,7 @@ var bodyFormData = new FormData();
         'Content-Type': 'multipart/form-data'
       }
     })
+
     .then(function (response) {
       const fetchedUrl = response.request.res.responseUrl;
       console.log(fetchedUrl)
