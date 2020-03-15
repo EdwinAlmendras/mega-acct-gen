@@ -15,7 +15,7 @@ const puppeteer = require('puppeteer');
 
     await page.click('input')
 
-    console.log(page.url())
+    console.log(await page.url() +"this is the URL")
 
 
     //get download file
