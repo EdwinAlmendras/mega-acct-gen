@@ -25,7 +25,7 @@ var form = new FormData();
 
     console.log(`post request to url${url} with data of form input ${data.file}`)
     axios
-    .post(url + postRequest, querystring.stringify(data))
+    .post(postRequest, querystring.stringify(data))
     .then((response) => {
       const fetchedUrl = response.request.res.responseUrl;
       console.log(fetchedUrl)
