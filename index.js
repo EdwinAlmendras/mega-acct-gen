@@ -24,7 +24,7 @@ const puppeteer = require('puppeteer');
     ]);
 
 
-    console.log(await response.url())
+    //  console.log(await response.url())
 
 
     /*
