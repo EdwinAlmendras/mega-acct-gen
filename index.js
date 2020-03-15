@@ -17,20 +17,13 @@ var form = new FormData();
     const url = await page.url()
     const file = await page.$eval('input', el => el.value);
 
-    console.log(file)
-
-
-    form.append('file', file);
-    const formHeaders = form.getHeaders()
-
-
 
     const data = {
       "file": file
     }
     const URL = "http://dl.free.fr/getfile.pl"
 
-
+    console.log(`post request to url${url} with data of form input ${data.file}`)
     axios
     .post(url, querystring.stringify(data))
     .then((response) => {
