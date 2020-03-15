@@ -11,7 +11,7 @@ const puppeteer = require('puppeteer');
 
     const file = await page.$eval('input', el => el.value);
 
-
+    console.log(file)
 
     //http://dl.free.fr/getfile.pl
 
