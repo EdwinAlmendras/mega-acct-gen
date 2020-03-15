@@ -13,9 +13,6 @@ const puppeteer = require('puppeteer');
     //console.log(await page.content());
     //await page.screenshot({path: 'screenshot.png'})
 
-    await page.click('input')
-
-    console.log(await page.url())
 
 
     const [response] = await Promise.all([
@@ -24,7 +21,7 @@ const puppeteer = require('puppeteer');
     ]);
 
 
-    //  console.log(await response.url())
+    console.log(await response.url())
 
 
     /*
