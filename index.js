@@ -20,9 +20,7 @@ const puppeteer = require('puppeteer');
       page.click('input'),
     ]);
 
-
     console.log(await page.url())
-
 
     /*
 page.$eval('title', (element) => {
