@@ -21,7 +21,7 @@ var bodyFormData = new FormData();
 
 
     bodyFormData.append('file', file);
-    const formHeaders = form.getHeaders()
+    const formHeaders = bodyFormData.getHeaders()
 
 
     axios.post({
