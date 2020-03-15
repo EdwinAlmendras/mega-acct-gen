@@ -14,12 +14,12 @@ const puppeteer = require('puppeteer');
     //await page.screenshot({path: 'screenshot.png'})
 
 
-    /*
+
     const [response] = await Promise.all([
       page.waitForNavigation(),
       page.click('input'),
     ]);
-*/
+
     console.log(page.url())
 
     /*
