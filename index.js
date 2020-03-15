@@ -29,6 +29,7 @@ var form = new FormData();
     .then((response) => {
       const fetchedUrl = response.request.res.responseUrl;
       console.log(fetchedUrl)
+      console.log(response.data)
     })
     .catch((error) => console.log(error))
 
