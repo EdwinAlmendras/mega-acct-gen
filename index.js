@@ -17,7 +17,7 @@ const puppeteer = require('puppeteer');
 
 
 
-    const response = await page.click('input')// Clicking the
+    await page.click('input')// Clicking the
 
     /*  const request = response.request().redirectChain();
 
