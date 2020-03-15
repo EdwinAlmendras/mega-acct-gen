@@ -1,9 +1,9 @@
 const puppeteer = require('puppeteer');
 const axios = require('axios');
 var FormData = require('form-data');
+const querystring = require('querystring')
 
-
-var bodyFormData = new FormData();
+var form = new FormData();
 
 
 (async()=> {
@@ -20,32 +20,23 @@ var bodyFormData = new FormData();
     console.log(file)
 
 
-    bodyFormData.append('file', file);
-    const formHeaders = bodyFormData.getHeaders()
+    form.append('file', file);
+    const formHeaders = form.getHeaders()
 
 
-    axios.post('http://dl.free.fr/getfile.pl',
-      bodyFormData,
-      {
-        headers: {
-          ...formHeaders
-        }
-      })
-    .then(function (response) {
-      const fetchedUrl = response.request.res.responseUrl;
-      console.log(fetchedUrl)
 
-    })
-    .catch(function (response) {
-      //handle error
-      console.log(response);
-    });
+    const data = {
+      "file" = file
+    }
+    const URL = "http://dl.free.fr/getfile.pl"
 
-    axios.post('http://example.com', form, {
-      headers: {
-        ...formHeaders,
-      },
-    })
+
+    axios
+    .post(URL, querystring.stringify(data))
+    .then((response) => const fetchedUrl = response.request.res.responseUrl;)
+    .catch((error) => console.log(error))
+
+
 
     await browser.close();
   }
