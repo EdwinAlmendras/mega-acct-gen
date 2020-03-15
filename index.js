@@ -13,7 +13,7 @@ const puppeteer = require('puppeteer');
     //console.log(await page.content());
     //await page.screenshot({path: 'screenshot.png'})
 
-    page.click('input')
+    await page.click('input')
 
     console.log(page.url())
 
@@ -28,7 +28,6 @@ page.$eval('title', (element) => {
 */
 
     await browser.close();
-
   }
   catch (err) {
     console.log(err)
