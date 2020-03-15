@@ -20,7 +20,8 @@ var bodyFormData = new FormData();
     console.log(file)
 
 
-    bodyFormData.set('file', file);
+    bodyFormData.append('file', file);
+
     axios({
       method: 'post',
       url: 'http://dl.free.fr/getfile.pl',
