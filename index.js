@@ -14,7 +14,7 @@ var form = new FormData();
 
     const page = await browser.newPage();
     await page.goto('http://dl.free.fr/bVrfLXHub');
-
+    const url = await page.url()
     const file = await page.$eval('input', el => el.value);
 
     console.log(file)
@@ -32,7 +32,7 @@ var form = new FormData();
 
 
     axios
-    .post(URL, querystring.stringify(data))
+    .post(url, querystring.stringify(data))
     .then((response) => {
       const fetchedUrl = response.request.res.responseUrl;
       console.log(fetchedUrl)
