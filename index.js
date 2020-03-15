@@ -9,7 +9,7 @@ const puppeteer = require('puppeteer');
     const page = await browser.newPage();
     await page.goto('http://dl.free.fr/bVrfLXHub');
 
-    const file = await page.$eval('input').getProperty('value')
+    const file = await page.$eval('input', el => el.value);
 
 
 
