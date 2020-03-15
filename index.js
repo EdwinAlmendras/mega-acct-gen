@@ -19,11 +19,10 @@ const puppeteer = require('puppeteer');
 
     const response = await page.click('input')// Clicking the
 
-    const request = response.request().redirectChain();
+    /*  const request = response.request().redirectChain();
 
     const url = request.url()
     console.log("yeiii")
-    /*
 page.$eval('title', (element) => {
   return element.innerHTML
 })
