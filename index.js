@@ -15,12 +15,17 @@ const puppeteer = require('puppeteer');
 
 
 
+
+
     const [response] = await Promise.all([
-      page.waitForNavigation(),
-      page.click('input'),
+      page.waitForNavigation('networkidle2'), // The promise resolves after navigation has finished after no more than 2 request left
+      page.click('input'), // Clicking the link will indirectly cause a navigation
     ]);
 
-    console.log(page.url())
+    const chain = response.request().redirectChain();
+    console.log(chain.length); // Return 1
+    console.log(chain[0].url()); // Return string 'http://example.com
+
 
     /*
 page.$eval('title', (element) => {
