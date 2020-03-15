@@ -22,7 +22,7 @@ const puppeteer = require('puppeteer');
     const request = response.request().redirectChain();
 
     const url = request.url()
-    console.log(url)
+    console.log("yeiii")
     /*
 page.$eval('title', (element) => {
   return element.innerHTML
