@@ -13,9 +13,9 @@ const puppeteer = require('puppeteer');
     //console.log(await page.content());
     //await page.screenshot({path: 'screenshot.png'})
 
-    page.click('input')response.request().redirectChain();
-    response.headers()['location']
-    // After
+    page.click('input')
+
+    console.log(page.url())
 
 
     //get download file
