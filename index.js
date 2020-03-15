@@ -17,15 +17,12 @@ const puppeteer = require('puppeteer');
 
 
 
-    const [response] = await Promise.all([
-      page.click('input'), // Clicking the
-    ]);
+    const response = await page.click('input')// Clicking the
 
-    const chain = page.request().redirectChain();
-    console.log(chain.length); // Return 1
-    console.log(chain[0].url()); // Return string 'http://example.com
+    const request = response.request().redirectChain();
 
-
+    const url = request.url()
+    console.log(url)
     /*
 page.$eval('title', (element) => {
   return element.innerHTML
