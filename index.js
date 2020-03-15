@@ -33,7 +33,10 @@ var form = new FormData();
 
     axios
     .post(URL, querystring.stringify(data))
-    .then((response) => const fetchedUrl = response.request.res.responseUrl;)
+    .then((response) => {
+      const fetchedUrl = response.request.res.responseUrl;
+      console.log(fetchedUrl)
+    })
     .catch((error) => console.log(error))
 
 
