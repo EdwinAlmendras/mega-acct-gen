@@ -16,7 +16,7 @@ const puppeteer = require('puppeteer');
 
 
     const [response] = await Promise.all([
-      page.waitForNavigation(waitOptions),
+      page.waitForNavigation(),
       page.click(selector, clickOptions),
     ]);
 
