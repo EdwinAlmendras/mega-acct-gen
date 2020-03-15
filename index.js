@@ -21,11 +21,11 @@ var form = new FormData();
     const data = {
       "file": file
     }
-    const URL = "http://dl.free.fr/getfile.pl"
+    const postRequest = "getfile.pl"
 
     console.log(`post request to url${url} with data of form input ${data.file}`)
     axios
-    .post(url, querystring.stringify(data))
+    .post(url + postRequest, querystring.stringify(data))
     .then((response) => {
       const fetchedUrl = response.request.res.responseUrl;
       console.log(fetchedUrl)
