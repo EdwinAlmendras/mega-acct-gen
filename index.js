@@ -13,13 +13,10 @@ const puppeteer = require('puppeteer');
     //console.log(await page.content());
     //await page.screenshot({path: 'screenshot.png'})
 
-    page.click('input')
+    page.click('input')response.request().redirectChain();
     response.headers()['location']
     // After
 
-    const chain = response.request().redirectChain();
-    console.log(chain.length); // Return 1
-    console.log(chain[0].url())
 
     //get download file
     //like html constantly sending info
