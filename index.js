@@ -24,14 +24,13 @@ var bodyFormData = new FormData();
     const formHeaders = bodyFormData.getHeaders()
 
 
-    axios.post({
-      url: 'http://dl.free.fr/getfile.pl',
+    axios.post('http://dl.free.fr/getfile.pl',
       bodyFormData,
-      headers: {
-        ...formHeaders
-      }
-    })
-
+      {
+        headers: {
+          ...formHeaders
+        }
+      })
     .then(function (response) {
       const fetchedUrl = response.request.res.responseUrl;
       console.log(fetchedUrl)
@@ -42,6 +41,11 @@ var bodyFormData = new FormData();
       console.log(response);
     });
 
+    axios.post('http://example.com', form, {
+      headers: {
+        ...formHeaders,
+      },
+    })
 
     await browser.close();
   }
