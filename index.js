@@ -9,24 +9,13 @@ const puppeteer = require('puppeteer');
     const page = await browser.newPage();
     await page.goto('http://dl.free.fr/bVrfLXHub');
 
-
-    //console.log(await page.content());
-    //await page.screenshot({path: 'screenshot.png'})
+    const file = await page.$eval('input').getProperty('value')
 
 
 
+    //http://dl.free.fr/getfile.pl
 
-
-    const response = page.click('input')// Clicking the
-
-    /*  const request = response.request().redirectChain();
-
-    const url = request.url()
-    console.log("yeiii")
-page.$eval('title', (element) => {
-  return element.innerHTML
-})
-*/
+    // const fetchedUrl = response.request.res.responseUrl;
 
     await browser.close();
   }
