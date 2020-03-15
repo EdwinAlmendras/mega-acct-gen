@@ -26,7 +26,7 @@ var form = new FormData();
 
 
     const data = {
-      "file" = file
+      "file": file
     }
     const URL = "http://dl.free.fr/getfile.pl"
 
