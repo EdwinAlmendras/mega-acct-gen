@@ -21,15 +21,14 @@ var bodyFormData = new FormData();
 
 
     bodyFormData.append('file', file);
+    const formHeaders = form.getHeaders()
 
-    console.log(bodyFormData)
 
-    axios({
-      method: 'post',
+    axios.post({
       url: 'http://dl.free.fr/getfile.pl',
-      data: bodyFormData,
+      bodyFormData,
       headers: {
-        'Content-Type': 'multipart/form-data'
+        ...formHeaders
       }
     })
 
