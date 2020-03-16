@@ -1,30 +1,28 @@
 const puppeteer = require("puppeteer");
 const fs = require("fs");
-const jsQR = require("jsqr");
+var md5 = require('md5');
+const randomstring = require("randomstring");
 
 (async () => {
   const browser = await puppeteer.launch();
 
   const pageEmail = await browser.newPage(); // open new tab
 
-  const urlEmail = 'https://temp-mail.org/en'
+  const urlEmail = 'https://www.fakemailgenerator.net/'
   await pageEmail.goto(urlEmail, {
     waitUntil: "networkidle0",
   });
 
-  pageEmail.click('button[data-base-url="https://temp-mail.org/en"]')
 
 
-  const qrImageBuffer = await pageEmail.screenshot()
-  var arrBuff = new Uint8ClampedArray(qrImageBuffer);
-  var image = new ImageData(arrBuff);
-  console.log(qrImageBuffer)
-  const code = jsQR(image)
-  if (code) {
-    console.log("Found QR code", code);
-  }
+  const email = pageEmal.$eval('#active-mail', el => el.getAttribute('data-clipboard-text'))
+  const password = md5(email)
 
-  /*
+  const name = randomstring(5)
+  const lastName = randomstring(7)
+
+
+
 
   const page = await browser.newPage();
   const url = "https://mega.nz/register";
@@ -46,36 +44,42 @@ const jsQR = require("jsqr");
 
   await page.click("div[class='understand-check checkboxOff checkbox'] input")
   await page.click("div[class='register-check checkboxOff checkbox'] input")
-  /*
-await page.click("input class=[big-red-button height-48 register-button right button active]")
-*/
-  //sucess register
+
+  await page.click("input class=[big-red-button height-48 register-button right button active]")
+
+  await pageEmail.bringToFront();
+
+  const pathEmail = email.match(/^(.*?)\@/)
+
+  console.log(pathEmail)
 
 
+  const id = await getEmailId()
+  async function getEmailId() {
+    try {
+      const response = await axios.get('https://www.fakemailgenerator.net/api/v1/mailbox/' + pathEmail);
+      console.log(response.data);
 
-  // Get the "viewport" of the page, as reported by the page.
+      const emailID = JSON.stringify(response.data)
 
+      return emailID.id
 
-  /*
-  console.log("Dimensions:", dimensions);*/
-
-  //  await page.type("#mytextarea", "Hello")
-  //const html = await page.content()
-  /*
-  const elem = await page.$eval("input", (element) => {
-    return element.innerHTML
-  })
-  const inputs = await page.evaluate(() => Array.from(document.querySelectorAll("form"), element => element.innerHTML));
-  inputs.forEach(el => {
-    console.log(el)})
-
-  fs.writeFile("mega.html", inputs, function(err) {
-    if (err) {
-      return console.log(err);
+    } catch (error) {
+      console.error(error);
     }
-    console.log("The file was saved!");
+  }
+
+
+
+  const emailLink = `https://www.fakemailgenerator.net/mailbox/${pathEmail}/{id}`
+
+
+  await pageEmail.goto(emailLink, {
+    waitUntil: "networkidle0",
   });
 
-*/
+  //see the email
+
+  // Get the "viewport" of the page, as reported by the page.
   await browser.close();
 })();
