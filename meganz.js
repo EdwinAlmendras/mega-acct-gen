@@ -62,7 +62,7 @@ const randomstring = require("randomstring");
 
       // const emails = JSON.parse(response.data)
       console.log(response.data)
-      return emails[0].id
+      // return emails[0].id
 
     } catch (error) {
       console.error(error);
