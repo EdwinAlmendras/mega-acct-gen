@@ -24,7 +24,7 @@ const randomstring = require("randomstring");
   console.log(email)
   console.log(name)
 
-  const [pathEmail] = email.replace(/\?(.*)/g, "")
+  const [pathEmail] = email.replace(/\@(.*)/g, "")
 
   console.log(pathEmail)
   console.log(pathEmail[2])
