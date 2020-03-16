@@ -9,7 +9,7 @@ const QRCode = require('qrcode');
   const pageEmail = await browser.newPage(); // open new tab
 
   const urlEmail = 'https://temp-mail.org/en'
-  await pageEmail.goto(url, {
+  await pageEmail.goto(urlEmail, {
     waitUntil: "networkidle0",
   });
 
