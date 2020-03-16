@@ -1,8 +1,6 @@
 const puppeteer = require("puppeteer");
 const fs = require("fs");
-const QRCode = require('qrcode');
-var Jimp = require("jimp");
-var QrCode = require('qrcode-reader');
+const jsQR = require("jsqr");
 
 (async () => {
   const browser = await puppeteer.launch();
@@ -20,12 +18,10 @@ var QrCode = require('qrcode-reader');
   const qrImageBuffer = await pageEmail.screenshot()
 
   console.log(qrImageBuffer)
-  await Jimp.read(qrImageBuffer, async function(err, image) {
-    var qr = new QrCode();
-
-    qr.decode(image.bitmap);
-  });
-
+  const code = jsQR(qrImageBuffer)
+  if (code) {
+    console.log("Found QR code", code);
+  }
 
   /*
 
