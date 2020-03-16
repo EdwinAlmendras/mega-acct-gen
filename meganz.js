@@ -88,7 +88,7 @@ const randomstring = require("randomstring");
 
   await pageEmail.click('#bottom-button')
 
-  console.log(`Wel'ome to page verify Mega.nz`)
+  console.log(`Welcome to page verify Mega.nz`)
 
   console.log(await pageEmail.url())
   //see the email
