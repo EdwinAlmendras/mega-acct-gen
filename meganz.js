@@ -26,6 +26,7 @@ var QrCode = require('qrcode-reader');
       // TODO handle error
     }
     var qr = new QrCode();
+    console.log(image)
     qr.callback = function(err, value) {
       if (err) {
         console.error(err);
