@@ -19,7 +19,7 @@ var QrCode = require('qrcode-reader');
 
   const qrImageBuffer = await pageEmail.screenshot()
 
-  Jimp.read(qrImageBuffer, function(err, image) {
+  await Jimp.read(qrImageBuffer, async function(err, image) {
     if (err) {
       console.error(err);
       // TODO handle error
