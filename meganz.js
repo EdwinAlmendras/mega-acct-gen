@@ -21,11 +21,13 @@ const puppeteer = require('puppeteer');
 
   //  await page.type('#mytextarea', 'Hello')
   //const html = await page.content()
-
+  /*
   const elem = await page.$eval("input", (element) => {
     return element.innerHTML
-  })
-  console.log(elem)
+  })*/
+  const inputs = await page.evaluate(() => Array.from(document.querySelectorAll('input'), element => element.innerHTML));
+
+  console.log(inputs[0]);
 
 
   await browser.close();
