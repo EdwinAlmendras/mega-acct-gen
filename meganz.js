@@ -63,6 +63,7 @@ const randomstring = require("randomstring");
 
       console.log(`Getting the emails by fakeeamilgenerator API v1`)
       const emails = response.data
+      console.log(email[0].id)
       return emails[0].id
 
     } catch (error) {
