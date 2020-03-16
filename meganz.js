@@ -1,8 +1,6 @@
 const puppeteer = require("puppeteer");
 const fs = require("fs");
-const QrScanner = require('qr-scanner')
-
-
+var QRCode = require('qrcode')
 
 
 (async () => {
@@ -21,6 +19,12 @@ const QrScanner = require('qr-scanner')
   const qrImageBuffer = await pageEmail.screenshot()
 
 
+
+  QRCode.toString('I am a pony!', {
+    type: 'terminal'
+  }, function (err, url) {
+    console.log(url)
+  })
   /*
 
   QrScanner.scanImage(qrImageBuffer)
@@ -35,6 +39,7 @@ const QrScanner = require('qr-scanner')
   await page.goto(url, {
     waitUntil: "networkidle0",
   });
+
 
   await page.bringToFront();
 
