@@ -83,9 +83,16 @@ const randomstring = require("randomstring");
 
 
   const html = await pageEmail.content()
-  console.log(html)
-  //see the email
 
-  // Get the "viewport" of the page, as reported by the page.
-  await browser.close();
-})();
+  console.log(`clicking verify email of MEGA.NZ`)
+
+  await pageEmail.click('#bottom-button'')
+
+    console.log(`Wel'ome to page verify Mega.nz`)
+
+    console.log(await pageEmail.url())
+    //see the email
+
+    // Get the "viewport" of the page, as reported by the page.
+    await browser.close();
+  })();
