@@ -18,8 +18,8 @@ const randomstring = require("randomstring");
   const email = pageEmail.$eval('#active-mail', el => el.getAttribute('data-clipboard-text'))
   const password = md5(email)
 
-  const name = randomstring(5)
-  const lastName = randomstring(7)
+  const name = randomstring.generate(5)
+  const lastName = randomstring.generate(7)
 
   console.log(email)
   console.log(name)
