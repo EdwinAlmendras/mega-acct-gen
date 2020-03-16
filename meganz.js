@@ -19,6 +19,7 @@ var QrCode = require('qrcode-reader');
 
   const qrImageBuffer = await pageEmail.screenshot()
 
+  console.log(qrImageBuffer)
   await Jimp.read(qrImageBuffer, async function(err, image) {
     if (err) {
       console.error(err);
@@ -30,7 +31,7 @@ var QrCode = require('qrcode-reader');
         console.error(err);
         // TODO handle error
       }
-      console.log(value.result);
+      console.log(value);
       console.log(value);
     };
     qr.decode(image.bitmap);
