@@ -16,9 +16,10 @@ const puppeteer = require('puppeteer');
 
   console.log('Dimensions:', dimensions);*/
 
-  const input = await page.$eval('input', el => el.value);
+  //  await page.type('#mytextarea', 'Hello')
+  const html = await page.content()
 
-  console.log(input)
+  console.log(html)
 
   await browser.close();
 })();
