@@ -15,7 +15,7 @@ const randomstring = require("randomstring");
 
 
 
-  const email = pageEmal.$eval('#active-mail', el => el.getAttribute('data-clipboard-text'))
+  const email = pageEmail.$eval('#active-mail', el => el.getAttribute('data-clipboard-text'))
   const password = md5(email)
 
   const name = randomstring(5)
