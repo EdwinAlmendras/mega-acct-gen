@@ -21,20 +21,7 @@ var QrCode = require('qrcode-reader');
 
   console.log(qrImageBuffer)
   await Jimp.read(qrImageBuffer, async function(err, image) {
-    if (err) {
-      console.error(err);
-      // TODO handle error
-    }
-    var qr = new QrCode();
-    console.log(image)
-    qr.callback = function(err, value) {
-      if (err) {
-        console.error(err);
-        // TODO handle error
-      }
-      console.log(value);
-      console.log(value);
-    };
+
     qr.decode(image.bitmap);
   });
 
