@@ -21,12 +21,12 @@ const QrScanner = require('qr-scanner')
   const qrImageBuffer = await pageEmail.screenshot()
 
 
-
+  /*
 
   QrScanner.scanImage(qrImageBuffer)
   .then(result => console.log(result))
   .catch(error => console.log(error))
-
+*/
 
 
   const page = await browser.newPage();
