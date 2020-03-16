@@ -16,9 +16,10 @@ const jsQR = require("jsqr");
 
 
   const qrImageBuffer = await pageEmail.screenshot()
-
+  var arrBuff = new Uint8ClampedArray(qrImageBuffer);
+  var image = new ImageData(arrBuff);
   console.log(qrImageBuffer)
-  const code = jsQR(qrImageBuffer)
+  const code = jsQR(image)
   if (code) {
     console.log("Found QR code", code);
   }
