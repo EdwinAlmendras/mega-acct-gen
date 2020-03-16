@@ -1,6 +1,6 @@
 const puppeteer = require("puppeteer");
 const fs = require("fs");
-var QRCode = require('qrcode')
+var QRCode = require('qrcode');
 
 
 (async () => {
