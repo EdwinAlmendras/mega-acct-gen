@@ -20,9 +20,6 @@ const puppeteer = require('puppeteer');
   console.log('Dimensions:', dimensions);*/
 
   //  await page.type('#mytextarea', 'Hello')
-  await page.waitForNavigation({
-    waitUntil: 'networkidle0',
-  });
   const html = await page.content()
 
   console.log(html)
