@@ -53,7 +53,7 @@ const randomstring = require("randomstring");
 
   await pageEmail.bringToFront();
 
-
+  await pageEmail.waitFor(3000)
   const id = await getEmailId()
   async function getEmailId() {
     try {
