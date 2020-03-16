@@ -1,9 +1,12 @@
 const puppeteer = require('puppeteer');
+const fs = require('fs');
+
 
 (async () => {
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
   const url = 'https://mega.nz/register';
+
   await page.goto(url, {
     waitUntil: 'networkidle0',
   });
@@ -28,7 +31,6 @@ const puppeteer = require('puppeteer');
   const inputs = await page.evaluate(() => Array.from(document.querySelectorAll('form'), element => element.innerHTML));
   inputs.forEach(el => {
     console.log(el)})
-  const fs = require('fs');
 
   fs.writeFile("mega.html", inputs, function(err) {
     if (err) {
