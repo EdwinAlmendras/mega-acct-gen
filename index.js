@@ -34,7 +34,6 @@ var form = new FormData();
     .catch((error) => console.log(error))
 
 
-
     await browser.close();
   }
   catch (err) {
