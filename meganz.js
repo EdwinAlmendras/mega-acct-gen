@@ -17,6 +17,7 @@ const puppeteer = require('puppeteer');
   console.log('Dimensions:', dimensions);*/
 
   //  await page.type('#mytextarea', 'Hello')
+  await page.waitForNavigation();
   const html = await page.content()
 
   console.log(html)
