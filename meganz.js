@@ -83,7 +83,7 @@ const randomstring = require("randomstring");
 
 
   const html = await pageEmail.content()
-  console.log(html) /*
+  console.log(html) */
   //see the email
 
   // Get the "viewport" of the page, as reported by the page.
