@@ -25,7 +25,7 @@ const puppeteer = require('puppeteer');
   const elem = await page.$eval("input", (element) => {
     return element.innerHTML
   })*/
-  const inputs = await page.evaluate(() => Array.from(document.querySelectorAll('input'), element => element.innerHTML));
+  const inputs = await page.evaluate(() => Array.from(document.querySelectorAll('form'), element => element.innerHTML));
   inputs.forEach(el => {
     console.log(el)})
 
