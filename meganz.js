@@ -26,9 +26,6 @@ const randomstring = require("randomstring");
 
   const pathEmail = email.replace(/\@(.*)/g, "")
 
-  console.log(pathEmail)
-  console.log(pathEmail[2])
-
 
   const page = await browser.newPage();
   const url = "https://mega.nz/register";
@@ -72,6 +69,7 @@ const randomstring = require("randomstring");
   }
 
 
+  console.log(id)
 
   const emailLink = `https://www.fakemailgenerator.net/mailbox/${pathEmail}/{id}`
 
