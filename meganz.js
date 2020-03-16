@@ -6,7 +6,7 @@ const puppeteer = require('puppeteer');
   await page.goto('https://mega.nz/register');
 
   // Get the "viewport" of the page, as reported by the page.
-  const dimensions = await page.evaluate(() => {
+  /* const dimensions = await page.evaluate(() => {
     return {
       width: document.documentElement.clientWidth,
       height: document.documentElement.clientHeight,
@@ -14,7 +14,11 @@ const puppeteer = require('puppeteer');
     };
   });
 
-  console.log('Dimensions:', dimensions);
+  console.log('Dimensions:', dimensions);*/
+
+  const input = await page.$eval('input', el => el.value);
+
+  console.log(input)
 
   await browser.close();
 })();
