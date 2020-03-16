@@ -27,6 +27,8 @@ const randomstring = require("randomstring");
   const pathEmail = email.match(/^(.*?)\@/)
 
   console.log(pathEmail)
+  console.log(pathEmail[2])
+
 
   const page = await browser.newPage();
   const url = "https://mega.nz/register";
