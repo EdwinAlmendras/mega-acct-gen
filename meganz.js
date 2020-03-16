@@ -60,9 +60,9 @@ const randomstring = require("randomstring");
       const response = await axios.get('https://www.fakemailgenerator.net/api/v1/mailbox/' + pathEmail);
       console.log(response.data);
 
-      const emailID = JSON.stringify(response.data)
+      const emails = JSON.stringify(response.data)
 
-      return emailID.id
+      return emails[0].id
 
     } catch (error) {
       console.error(error);
@@ -79,6 +79,9 @@ const randomstring = require("randomstring");
     waitUntil: "networkidle0",
   });
 
+
+  const html = await pageEmail.content()
+  console.log(html)
   //see the email
 
   // Get the "viewport" of the page, as reported by the page.
