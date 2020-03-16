@@ -60,8 +60,8 @@ const randomstring = require("randomstring");
       const response = await axios.get('https://www.fakemailgenerator.net/api/v1/mailbox/' + pathEmail);
       console.log(response.data);
 
-      const emails = JSON.parse(response.data)
-
+      // const emails = JSON.parse(response.data)
+      console.log(response.data)
       return emails[0].id
 
     } catch (error) {
