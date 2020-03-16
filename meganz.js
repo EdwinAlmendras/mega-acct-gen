@@ -1,7 +1,8 @@
 const puppeteer = require("puppeteer");
 const fs = require("fs");
 const QRCode = require('qrcode');
-
+var Jimp = require("jimp");
+var QrCode = require('qrcode-reader');
 
 (async () => {
   const browser = await puppeteer.launch();
@@ -18,20 +19,25 @@ const QRCode = require('qrcode');
 
   const qrImageBuffer = await pageEmail.screenshot()
 
+  Jimp.read(qrImageBuffer, function(err, image) {
+    if (err) {
+      console.error(err);
+      // TODO handle error
+    }
+    var qr = new QrCode();
+    qr.callback = function(err, value) {
+      if (err) {
+        console.error(err);
+        // TODO handle error
+      }
+      console.log(value.result);
+      console.log(value);
+    };
+    qr.decode(image.bitmap);
+  });
 
 
-  QRCode.toString('I am a pony!', {
-    type: 'terminal'
-  }, function (err, url) {
-    console.log(url)
-  })
   /*
-
-  QrScanner.scanImage(qrImageBuffer)
-  .then(result => console.log(result))
-  .catch(error => console.log(error))
-*/
-
 
   const page = await browser.newPage();
   const url = "https://mega.nz/register";
