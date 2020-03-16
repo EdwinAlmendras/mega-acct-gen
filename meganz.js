@@ -24,7 +24,6 @@ const randomstring = require("randomstring");
 
   console.log(email)
   console.log(name)
-
   const pathEmail = email.replace(/\@(.*)/g, "")
 
 
@@ -40,6 +39,8 @@ const randomstring = require("randomstring");
 
   //name email password
 
+  console.log(`starting writting data to mega.nz/register`)
+
   await page.type("input[name='register-name2']", name)
   await page.type("input[name='register-familyname2']", lastName)
   await page.type("input[name='register-email2']", email)
@@ -51,6 +52,7 @@ const randomstring = require("randomstring");
 
   await page.click("div[class='big-red-button height-48 register-button right button active']")
 
+  console.log(`sending all data to MEGA.nz`)
   await pageEmail.bringToFront();
 
   await pageEmail.waitFor(3000)
@@ -58,11 +60,10 @@ const randomstring = require("randomstring");
   async function getEmailId() {
     try {
       const response = await axios.get('https://www.fakemailgenerator.net/api/v1/mailbox/' + pathEmail);
-      console.log(response.data);
 
-      // const emails = JSON.parse(response.data)
-      console.log(response.data)
-      // return emails[0].id
+      console.log(`Getting the emails by fakeeamilgenerator API v1`)
+      const emails = ressponse.data
+      return emails[0].id
 
     } catch (error) {
       console.error(error);
@@ -70,10 +71,9 @@ const randomstring = require("randomstring");
   }
 
 
-  console.log(id)
 
   const emailLink = `https://www.fakemailgenerator.net/mailbox/${pathEmail}/{id}`
-
+  console.log(`going to url of email...`)
 
   await pageEmail.goto(emailLink, {
     waitUntil: "networkidle0",
