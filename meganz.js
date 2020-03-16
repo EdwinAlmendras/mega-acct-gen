@@ -26,7 +26,7 @@ const randomstring = require("randomstring");
 
   const pathEmail = email.match(/^(.*?)\@/)
 
-  console.log(pathEmail[2])
+  console.log(pathEmail)
 
   const page = await browser.newPage();
   const url = "https://mega.nz/register";
@@ -49,7 +49,7 @@ const randomstring = require("randomstring");
   await page.click("div[class='understand-check checkboxOff checkbox'] input")
   await page.click("div[class='register-check checkboxOff checkbox'] input")
 
-  await page.click("input class=[big-red-button height-48 register-button right button active]")
+  await page.click("input class=['big-red-button height-48 register-button right button active']")
 
   await pageEmail.bringToFront();
 
