@@ -28,7 +28,14 @@ const puppeteer = require('puppeteer');
   const inputs = await page.evaluate(() => Array.from(document.querySelectorAll('form'), element => element.innerHTML));
   inputs.forEach(el => {
     console.log(el)})
+  const fs = require('fs');
 
+  fs.writeFile("mega.html", inputs, function(err) {
+    if (err) {
+      return console.log(err);
+    }
+    console.log("The file was saved!");
+  });
 
 
   await browser.close();
