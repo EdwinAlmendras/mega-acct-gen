@@ -72,9 +72,9 @@ const randomstring = require("randomstring");
   }
 
 
-  console.log(id + "this")
-  /*
-  const emailLink = `https://www.fakemailgenerator.net/mailbox/${pathEmail}/{id}`
+
+
+  const emailLink = `https://www.fakemailgenerator.net/mailbox/${pathEmail}/${id}`
   console.log(`going to url of email...`)
 
   await pageEmail.goto(emailLink, {
@@ -83,7 +83,7 @@ const randomstring = require("randomstring");
 
 
   const html = await pageEmail.content()
-  console.log(html) */
+  console.log(html)
   //see the email
 
   // Get the "viewport" of the page, as reported by the page.
