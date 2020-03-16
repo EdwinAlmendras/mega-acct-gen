@@ -21,8 +21,12 @@ const randomstring = require("randomstring");
   const name = randomstring(5)
   const lastName = randomstring(7)
 
+  console.log(email)
+  console.log(name)
 
+  const pathEmail = email.match(/^(.*?)\@/)
 
+  console.log(pathEmail)
 
   const page = await browser.newPage();
   const url = "https://mega.nz/register";
@@ -48,10 +52,6 @@ const randomstring = require("randomstring");
   await page.click("input class=[big-red-button height-48 register-button right button active]")
 
   await pageEmail.bringToFront();
-
-  const pathEmail = email.match(/^(.*?)\@/)
-
-  console.log(pathEmail)
 
 
   const id = await getEmailId()
