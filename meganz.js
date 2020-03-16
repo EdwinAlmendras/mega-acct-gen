@@ -23,9 +23,9 @@ const puppeteer = require('puppeteer');
   //const html = await page.content()
 
   const elem = await page.$eval("input", (element) => {
-    // return element.innerHTML
-    console.log(element)
+    console.log(element.innerHTML)
   })
+  //console.log()
 
 
   await browser.close();
