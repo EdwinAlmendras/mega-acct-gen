@@ -26,8 +26,9 @@ const puppeteer = require('puppeteer');
     return element.innerHTML
   })*/
   const inputs = await page.evaluate(() => Array.from(document.querySelectorAll('form'), element => element.innerHTML));
+  inputs.forEach(el => {
+    console.log(el)})
 
-  console.log(inputs[0]);
 
 
   await browser.close();
