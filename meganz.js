@@ -71,7 +71,7 @@ const randomstring = require("randomstring");
   }
 
 
-
+  console.log(id)
   const emailLink = `https://www.fakemailgenerator.net/mailbox/${pathEmail}/{id}`
   console.log(`going to url of email...`)
 
