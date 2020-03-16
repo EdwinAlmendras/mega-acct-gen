@@ -48,7 +48,7 @@ const randomstring = require("randomstring");
   await page.click("div[class='understand-check checkboxOff checkbox'] input")
   await page.click("div[class='register-check checkboxOff checkbox'] input")
 
-  await page.click("input class=['big-red-button height-48 register-button right button active']")
+  await page.click("input[class='big-red-button height-48 register-button right button active']")
 
   await pageEmail.bringToFront();
 
