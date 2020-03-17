@@ -3,7 +3,7 @@ const fs = require("fs");
 const axios = require("axios");
 var md5 = require('md5');
 const randomstring = require("randomstring");
-const clipboardy = require('clipboardy')
+const clipboardy = require('clipboardy');
 
 (async () => {
   const browser = await puppeteer.launch();
