@@ -98,8 +98,10 @@ const randomstring = require("randomstring");
   //
   //await pageEmail.type('input[name="login-name3"]', email)
   await pageEmail.type("input[name='login-password3']", password)
-  await pageEmail.click("div[class='big-red-button height-48 top-dialog-login-button button right']")
 
+  await page.evaluate(() => {
+    document.querySelector("div[class='big-red-button height-48 top-dialog-login-button button right']").click();
+  });
 
 
   await pageEmail.waitFor(2000)
