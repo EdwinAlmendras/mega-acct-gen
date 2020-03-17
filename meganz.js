@@ -101,7 +101,7 @@ const randomstring = require("randomstring");
 
   //await pageEmail.waitFor(2000)
 
-  console.log(await pageEmail.url())
+  console.log(pageEmail.url())
 
   await browser.close();
 })();
