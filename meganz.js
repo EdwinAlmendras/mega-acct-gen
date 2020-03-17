@@ -3,7 +3,7 @@ const fs = require("fs");
 const axios = require("axios");
 var md5 = require('md5');
 const randomstring = require("randomstring");
-var  PastebinAPI = require (' pastebin-js ');
+var  PastebinAPI = require ('pastebin-js');
 
 
 const API_KEY = '66797adb0b23b070bb4019851a1b1122'
