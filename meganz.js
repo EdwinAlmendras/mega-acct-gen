@@ -4,6 +4,7 @@ const axios = require("axios");
 var md5 = require('md5');
 const randomstring = require("randomstring");
 
+
 (async () => {
   const browser = await puppeteer.launch();
 
@@ -76,6 +77,7 @@ const randomstring = require("randomstring");
 
   const emailLink = `https://www.fakemailgenerator.net/mailbox/${pathEmail}/${id}`
   console.log(`going to url of email...`)
+  console.log(emailLink)
 
   await pageEmail.goto(emailLink, {
     waitUntil: "networkidle0",
@@ -88,7 +90,7 @@ const randomstring = require("randomstring");
 
   await pageEmail.click('#bottom-button')
 
-  console.log(`Wel'ome to page verify Mega.nz`)
+  console.log(`Welcome to page verify Mega.nz`)
 
   console.log(await pageEmail.url())
   //see the email
