@@ -4,6 +4,7 @@ const axios = require("axios");
 var md5 = require('md5');
 const randomstring = require("randomstring");
 
+
 (async () => {
   const browser = await puppeteer.launch();
 
@@ -76,6 +77,7 @@ const randomstring = require("randomstring");
 
   const emailLink = `https://www.fakemailgenerator.net/mailbox/${pathEmail}/${id}`
   console.log(`going to url of email...`)
+  console.log(emailLink)
 
   await pageEmail.goto(emailLink, {
     waitUntil: "networkidle0",
