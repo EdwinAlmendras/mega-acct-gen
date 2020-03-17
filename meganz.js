@@ -97,6 +97,7 @@ const randomstring = require("randomstring");
 
   //
   await pageEmail.type('input[name="login-name3"]', email)
+
   await pageEmail.type("input[name='login-password3']", password)
 
   await page.evaluate(() => {
@@ -106,7 +107,7 @@ const randomstring = require("randomstring");
 
   await pageEmail.waitFor(2000)
 
-  console.log(pageEmail.url())
+  console.log(await pageEmail.url())
 
   await browser.close();
 })();
