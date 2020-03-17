@@ -95,6 +95,8 @@ const clipboardy = require('clipboardy');
     waitUntil: "networkidle0",
   });
 
+  clipboardy.writeSync(email);
+
   console.log('sucessfully create account with' + email)
   /*
   await pageEmail.type('input[name="login-name3"]', "hi 0itoos")
