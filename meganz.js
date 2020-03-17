@@ -88,7 +88,8 @@ const randomstring = require("randomstring");
 
   console.log(`clicking verify email of MEGA.NZ`)
 
-  const link = await pageEmail.$eval('#active-mail', el => el.getAttribute('href'))
+  const link = await pageEmail.$eval('#bottom-button', el => el.getAttribute('href'))
+
   console.log(link)
 
   //await pageEmail.click('#bottom-button')
