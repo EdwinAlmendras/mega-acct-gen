@@ -86,7 +86,7 @@ const randomstring = require("randomstring");
 
   // const html = await pageEmail.content()
 
-  console.log(`clicking verify email of MEGA.NZ`)
+  console.log(`Getting confirm link`)
 
   const link = await pageEmail.$eval('#bottom-button', el => el.getAttribute('href'))
 
@@ -95,7 +95,7 @@ const randomstring = require("randomstring");
   });
 
   //
-  console.log(await pageEmail.url())
+  console.log(await pageEmail.content())
   //see the email
 
   // Get the "viewport" of the page, as reported by the page.
