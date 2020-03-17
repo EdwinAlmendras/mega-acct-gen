@@ -97,14 +97,14 @@ const randomstring = require("randomstring");
 
   //
   //await pageEmail.type('input[name="login-name3"]', email)
-  await pageEmail.type("input[name='login-password3']", password
-    await pageEmail.click("div[class='big-red-button height-48 top-dialog-login-button button right']")
+  await pageEmail.type("input[name='login-password3']", password)
+  await pageEmail.click("div[class='big-red-button height-48 top-dialog-login-button button right']")
 
 
 
-    await pageEmail.waitFor(2000)
+  await pageEmail.waitFor(2000)
 
-    console.log(pageEmail.url())
+  console.log(pageEmail.url())
 
-    await browser.close();
-  })();
+  await browser.close();
+})();
