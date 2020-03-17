@@ -3,7 +3,20 @@ const fs = require("fs");
 const axios = require("axios");
 var md5 = require('md5');
 const randomstring = require("randomstring");
-const clipboardy = require('clipboardy');
+var  PastebinAPI = require (' pastebin-js ');
+
+
+const API_KEY = '66797adb0b23b070bb4019851a1b1122'
+const USER = 'gxldxm689171'
+const PSW = 'bea54436fabf243c24b767289fbdf05f'
+
+
+pastebin = new PastebinAPI({
+  'api_dev_key': API_KEY,
+  'api_user_name': USER,
+  'api_user_password': PSW
+
+});
 
 (async () => {
   const browser = await puppeteer.launch();
@@ -16,7 +29,6 @@ const clipboardy = require('clipboardy');
   });
 
 
-
   const email = await pageEmail.$eval('#active-mail', el => el.getAttribute('data-clipboard-text'))
   const password = md5(email)
 
@@ -24,7 +36,8 @@ const clipboardy = require('clipboardy');
   const lastName = randomstring.generate(7)
 
   console.log(email)
-  console.log(name)
+  console.log(password)
+
   const pathEmail = email.replace(/\@(.*)/g, "")
 
 
@@ -37,8 +50,6 @@ const clipboardy = require('clipboardy');
 
 
   await page.bringToFront();
-
-  //name email password
 
   console.log(`starting writting data to mega.nz/register`)
 
@@ -57,8 +68,14 @@ const clipboardy = require('clipboardy');
   console.log(`sending all data to MEGA.nz`)
   await pageEmail.bringToFront();
 
-  await pageEmail.waitFor(3000)
-  const id = await getEmailId()
+
+
+
+  await pageEmail.waitFor(2000)
+
+
+
+
   async function getEmailId() {
     try {
       const response = await axios.get('https://www.fakemailgenerator.net/api/v1/mailbox/' + pathEmail);
@@ -72,7 +89,7 @@ const clipboardy = require('clipboardy');
       console.error(error);
     }
   }
-
+  const id = await getEmailId()
 
 
 
@@ -84,9 +101,6 @@ const clipboardy = require('clipboardy');
     waitUntil: "networkidle0",
   });
 
-
-  // const html = await pageEmail.content()
-
   console.log(`Getting confirm link`)
 
   const link = await pageEmail.$eval('#bottom-button', el => el.getAttribute('href'))
@@ -95,22 +109,17 @@ const clipboardy = require('clipboardy');
     waitUntil: "networkidle0",
   });
 
-  //clipboardy.writeSync(email);
-
   console.log('sucessfully create account with' + email)
-  /*
-  await pageEmail.type('input[name="login-name3"]', "hi 0itoos")
 
-  await pageEmail.type("input[name='login-password3']", "somewhere")
-
-  await page.evaluate(() => {
-    document.querySelector("div[class='big-red-button height-48 top-dialog-login-button button right']").click();
-  });
-
-
-  await pageEmail.waitFor(2000)
-
-  console.log(await pageEmail.url())*/
+  pastebin
+  .createPaste(email, "email-account", null, 3)
+  .then(function (data) {
+    console.log(data);
+  })
+  .fail(function (err) {
+    // Something went wrong
+    console.log(err);
+  })
 
   await browser.close();
 })();
