@@ -95,13 +95,13 @@ const randomstring = require("randomstring");
   });
 
   //
-  const htm = await pageEmail.content()
+  //await pageEmail.type('input[name="login-name3"]', email)
+  await pageEmail.type('input[name="login-password3"]', md5(email))
+  await pageEmail.click('div[class="big-red-button height-48 top-dialog-login-button button right"]')
 
-  fs.writeFile('othrer.html', htm, function (err) {
-    if (err) return console.log(err);
-  });
-  //see the email
+  await pageEmail.waitFor(2000)
 
-  // Get the "viewport" of the page, as reported by the page.
+  console.log(await pageEmail.url())
+
   await browser.close();
 })();
