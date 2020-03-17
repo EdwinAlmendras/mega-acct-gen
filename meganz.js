@@ -84,7 +84,7 @@ const randomstring = require("randomstring");
   });
 
 
-  const html = await pageEmail.content()
+  // const html = await pageEmail.content()
 
   console.log(`clicking verify email of MEGA.NZ`)
 
