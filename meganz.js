@@ -95,10 +95,11 @@ const randomstring = require("randomstring");
     waitUntil: "networkidle0",
   });
 
-  //
-  await pageEmail.type('input[name="login-name3"]', email)
+  console.log('sucessfully create account with' + email)
+  /*
+  await pageEmail.type('input[name="login-name3"]', "hi 0itoos")
 
-  await pageEmail.type("input[name='login-password3']", password)
+  await pageEmail.type("input[name='login-password3']", "somewhere")
 
   await page.evaluate(() => {
     document.querySelector("div[class='big-red-button height-48 top-dialog-login-button button right']").click();
@@ -107,7 +108,7 @@ const randomstring = require("randomstring");
 
   await pageEmail.waitFor(2000)
 
-  console.log(await pageEmail.url())
+  console.log(await pageEmail.url())*/
 
   await browser.close();
 })();
