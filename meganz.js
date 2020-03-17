@@ -95,7 +95,11 @@ const randomstring = require("randomstring");
   });
 
   //
-  console.log(await pageEmail.content())
+  const htm = await pageEmail.content()
+
+  fs.writeFile('othrer.html', htm, function (err) {
+    if (err) return console.log(err);
+  });
   //see the email
 
   // Get the "viewport" of the page, as reported by the page.
