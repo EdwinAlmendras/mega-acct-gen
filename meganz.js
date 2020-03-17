@@ -3,7 +3,7 @@ const fs = require("fs");
 const axios = require("axios");
 var md5 = require('md5');
 const randomstring = require("randomstring");
-
+const clipboardy = require('clipboardy')
 
 (async () => {
   const browser = await puppeteer.launch();
@@ -94,7 +94,7 @@ const randomstring = require("randomstring");
   await pageEmail.goto(link, {
     waitUntil: "networkidle0",
   });
-
+  clipboardy.writeSync(email);
   console.log('sucessfully create account with' + email)
   /*
   await pageEmail.type('input[name="login-name3"]', "hi 0itoos")
