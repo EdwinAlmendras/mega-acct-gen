@@ -90,11 +90,10 @@ const randomstring = require("randomstring");
 
   const link = await pageEmail.$eval('#bottom-button', el => el.getAttribute('href'))
 
-  console.log(link)
+  await pageEmail.goto(link, {
+    waitUntil: "networkidle0",
+  });
 
-  //await pageEmail.click('#bottom-button')
-
-  console.log(`Welcome to page verify Mega.nz`)
   //
   console.log(await pageEmail.url())
   //see the email
