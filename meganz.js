@@ -95,7 +95,7 @@ const clipboardy = require('clipboardy');
     waitUntil: "networkidle0",
   });
 
-  clipboardy.writeSync(email);
+  //clipboardy.writeSync(email);
 
   console.log('sucessfully create account with' + email)
   /*
