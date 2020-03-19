@@ -31,7 +31,7 @@ inquirer
     //:
     //email:password
     const megaAccounts = ''
-    const numberOfAccounts = accounts.accts
+    const numberOfAccounts = answers.accts
 
     console.log('creating mega accounts.. please wait')
 
