@@ -20,9 +20,6 @@ pastebin = new PastebinAPI({
 });
 
 
-var test = ''
-test += 'mi awesome text\n'
-console.log(test)
 inquirer
 .prompt([{
   type: "number",
@@ -40,14 +37,12 @@ inquirer
 
     for (i = 0; i < numberOfAccounts; i++) {
       const accountMega = await createMegaAccount()
-      megaAccounts.concat(accountMega + '/n')
+      megaAccounts += accountMega + '\n'
     }
 
     const date = await moment().format('MMMM Do YYYY, h:mm:ss a')
-    console.log(megaAccounts)
-    console.log(date)
     await createPaste(megaAccounts, date)
-    console.log('created paste with this accounts: /n' + megaAccounts)
+    console.log('created paste with this accounts:\n' + megaAccounts)
   })
 
   /*
