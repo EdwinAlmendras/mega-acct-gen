@@ -45,18 +45,6 @@ inquirer
     console.log('created paste with this accounts:\n' + megaAccounts)
   })
 
-  /*
-const forLoop = async _ => {
-  console.log('Start')
-
-  for (let index = 0; index < fruitsToGet.length; index++) {
-    const fruit = fruitsToGet[index]
-    const numFruit = await getNumFruit(fruit)
-    console.log(numFruit)
-  }
-
-  console.log('End')
-}*/
 
   async function createMegaAccount() {
     const browser = await puppeteer.launch();
@@ -125,10 +113,7 @@ const forLoop = async _ => {
     async function getEmailId() {
       try {
         const response = await axios.get('https://www.fakemailgenerator.net/api/v1/mailbox/' + pathEmail);
-
-        console.log(`Getting the emails by fakeeamilgenerator API v1`)
         const emails = response.data
-        console.log(email[0].id)
         return emails[0].id
 
       } catch (error) {
@@ -136,12 +121,8 @@ const forLoop = async _ => {
       }
     }
     const id = await getEmailId()
-
-
-
     const emailLink = `https://www.fakemailgenerator.net/mailbox/${pathEmail}/${id}`
     console.log(`going to url of email...`)
-    console.log(emailLink)
 
     await pageEmail.goto(emailLink,
       {
