@@ -19,6 +19,10 @@ pastebin = new PastebinAPI({
 
 });
 
+
+var test = ''
+test.concat('mi awesome text\n')
+console.log(test)
 inquirer
 .prompt([{
   type: "number",
@@ -43,7 +47,6 @@ inquirer
     console.log(megaAccounts)
     console.log(date)
     await createPaste(megaAccounts, date)
-
     console.log('created paste with this accounts: /n' + megaAccounts)
   })
 
