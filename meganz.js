@@ -30,7 +30,7 @@ inquirer
   .then(async answers => {
     //:
     //email:password
-    const megaAccounts = ''
+    var megaAccounts = ''
     const numberOfAccounts = answers.accts
 
     console.log('creating mega accounts.. please wait')
