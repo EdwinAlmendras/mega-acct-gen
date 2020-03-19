@@ -38,9 +38,10 @@ inquirer
       const accountMega = await createMegaAccount()
       megaAccounts.concat(accountMega + '/n')
     }
-    console.log(megaAccounts)
-    const date = await moment().format('MMMM Do YYYY, h:mm:ss a')
 
+    const date = await moment().format('MMMM Do YYYY, h:mm:ss a')
+    console.log(megaAccounts)
+    console.log(date)
     await createPaste(megaAccounts, date)
 
     console.log('created paste with this accounts: /n' + megaAccounts)
