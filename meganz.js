@@ -19,6 +19,7 @@ pastebin = new PastebinAPI({
 
 });
 
+
 inquirer
 .prompt([{
   type: "number",
