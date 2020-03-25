@@ -51,7 +51,7 @@ inquirer
         
         let accountMega = await createMegaAccount(true)
       }
-      else(res){
+      else{
          
          let accountMega = await createMegaAccount(false)
       }
