@@ -45,15 +45,16 @@ inquirer
     const res = answers.question
 
     console.log('creating mega accounts.. please wait')
+    let accountMega;
 
     for (i = 0; i < numberOfAccounts; i++) {
       if (res) {
         
-        let accountMega = await createMegaAccount(true)
+        accountMega = await createMegaAccount(true)
       }
       else{
          
-         let accountMega = await createMegaAccount(false)
+         accountMega = await createMegaAccount(false)
       }
       
       megaAccounts += accountMega + '\n'
