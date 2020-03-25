@@ -12,6 +12,7 @@ const API_KEY = '66797adb0b23b070bb4019851a1b1122'
 const USER = 'gxldxm689171'
 const PSW = 'bea54436fabf243c24b767289fbdf05f'
 
+
 pastebin = new PastebinAPI({
   'api_dev_key': API_KEY,
   'api_user_name': USER,
@@ -20,23 +21,41 @@ pastebin = new PastebinAPI({
 });
 
 
+
+
+let email, password, name, lastName;
+
 inquirer
 .prompt([{
   type: "number",
   name: "accts",
   message: "Which accounts can you create?",
   default: 1
+  },
+  {
+    type: "confirm",
+    name: "question",
+    message: "You can hash password(email)?"
   }])
   .then(async answers => {
     //:
     //email:password
     var megaAccounts = ''
     const numberOfAccounts = answers.accts
+    const res = answers.question
 
     console.log('creating mega accounts.. please wait')
 
     for (i = 0; i < numberOfAccounts; i++) {
-      const accountMega = await createMegaAccount()
+      if (res) {
+        
+        let accountMega = await createMegaAccount(true)
+      }
+      else(res){
+         
+         let accountMega = await createMegaAccount(false)
+      }
+      
       megaAccounts += accountMega + '\n'
     }
 
@@ -44,12 +63,16 @@ inquirer
     await createPaste(megaAccounts, date)
     console.log('created paste with this accounts:\n' + megaAccounts)
   })
+  
+  //IF TRUE CREATE HASH PASSWORDS
 
 
-  async function createMegaAccount() {
+  async function createMegaAccount(prop) {
     const browser = await puppeteer.launch();
 
-    const pageEmail = await browser.newPage(); // open new tab
+    const pageEmail = await browser.newPage(); // open new getAttribute
+    
+    //Geeting FAKE EMAIL
 
     const urlEmail = 'https://www.fakemailgenerator.net/'
     await pageEmail.goto(urlEmail,
@@ -58,69 +81,42 @@ inquirer
       });
 
 
-    const email = await pageEmail.$eval('#active-mail',
+    email = await pageEmail.$eval('#active-mail',
       el => el.getAttribute('data-clipboard-text'))
-    const password = md5(email)
-
-    const name = randomstring.generate(5)
-    const lastName = randomstring.generate(7)
+    
+    //Conditional props
+    
+    if (prop){
+     password = md5(email)
+    name = faker.name.firstName()
+    lastName = faker.name.lastName()
+    }
+    else{
+    password = email
+    name = faker.name.firstName()
+    lastName = faker.name.lastName()
+    }
+    
+    
+    //search => //email//@some.com
 
     const pathEmail = email.replace(/\@(.*)/g,
       "")
-
-
-    const page = await browser.newPage();
-    const url = "https://mega.nz/register";
-
-    await page.goto(url,
-      {
-        waitUntil: "networkidle0",
-      });
-
-
-    await page.bringToFront();
-
-    console.log(`starting writting data to mega.nz/register`)
-
-    await page.type("input[name='register-name2']",
-      name)
-    await page.type("input[name='register-familyname2']",
-      lastName)
-    await page.type("input[name='register-email2']",
-      email)
-    await page.type("input[name='register-password2']",
-      password)
-    await page.type("input[name='register-password3']",
-      password)
-
-    await page.click("div[class='understand-check checkboxOff checkbox'] input")
-    await page.click("div[class='register-check checkboxOff checkbox'] input")
-
-
-    await page.click("div[class='big-red-button height-48 register-button right button active']")
-
-    console.log(`sending all data to MEGA.nz`)
+    
+    //Sneding data to mega
+    await signupInputMegaHandler(browser)
+    
     await pageEmail.bringToFront();
 
-
-
-
     await pageEmail.waitFor(2000)
+    
+    
+    //id of email fake
 
-
-
-
-    async function getEmailId() {
-      try {
-        const response = await axios.get('https://www.fakemailgenerator.net/api/v1/mailbox/' + pathEmail);
-        const emails = response.data
-        return emails[0].id
-
-      } catch (error) {
-        console.error(error);
-      }
-    }
-    const id = await getEmailId()
+    const id = await getEmailId(pathEmail)
+    
+    
+    //going url of api
     const emailLink = `https://www.fakemailgenerator.net/mailbox/${pathEmail}/${id}`
     console.log(`going to url of email...`)
 
@@ -160,4 +156,53 @@ inquirer
       // Something went wrong
       console.log(err);
     })
+  }
+  
+  
+  async function getEmailId(pathEmail) {
+      try {
+        const response = await axios.get('https://www.fakemailgenerator.net/api/v1/mailbox/' + pathEmail);
+        const emails = response.data
+        return emails[0].id
+
+      } catch (error) {
+        console.error(error);
+      }
+    }
+  
+  
+  const signupInputMegaHandler = async (browser)=>{
+    const page = await browser.newPage();
+    const url = "https://mega.nz/register";
+
+    await page.goto(url,
+      {
+        waitUntil: "networkidle0",
+      });
+
+
+    await page.bringToFront();
+
+    console.log(`starting writting data to mega.nz/register`)
+
+    await page.type("input[name='register-name2']",
+      name)
+    await page.type("input[name='register-familyname2']",
+      lastName)
+    await page.type("input[name='register-email2']",
+      email)
+    await page.type("input[name='register-password2']",
+      password)
+    await page.type("input[name='register-password3']",
+      password)
+
+    await page.click("div[class='understand-check checkboxOff checkbox'] input")
+    await page.click("div[class='register-check checkboxOff checkbox'] input")
+
+
+    await page.click("div[class='big-red-button height-48 register-button right button active']")
+
+    console.log(`sending all data to MEGA.nz`)
+    
+    
   }
