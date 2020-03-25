@@ -6,7 +6,7 @@ const randomstring = require("randomstring");
 const  PastebinAPI = require ('pastebin-js');
 const  moment = require ('moment');
 const  inquirer = require ('inquirer');
-
+const faker = require('faker')
 //PASTEBIN SETTINGS
 const API_KEY = '66797adb0b23b070bb4019851a1b1122'
 const USER = 'gxldxm689171'
