@@ -2,6 +2,7 @@ import puppeteer from 'puppeteer'
 
 import megaRegister from './megaRegister'
 import getEmailAndUser from './getEmailAndUser'
+import confirmEmail from './confirmEmail'
 
 
 async function createMegaAccount(haveHash) {
