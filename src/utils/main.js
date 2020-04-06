@@ -18,10 +18,6 @@ let questions = [{
     message: "You can hash password(email)?"
   }]
 
-
-
-
-
   const main = async () => {
 
     const answers = await inquirer.prompt(questions)
