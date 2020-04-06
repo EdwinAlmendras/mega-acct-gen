@@ -18,15 +18,14 @@ const getEmailAndUser = async(pageEmail, haveHash) => {
     el.getAttribute('data-clipboard-text'))
 
   //Conditional props
-
+  name = faker.name.firstName()
+  lastName = faker.name.lastName()
   if (haveHash) {
     password = md5(email)
-    name = faker.name.firstName()
-    lastName = faker.name.lastName()
+
   } else {
     password = email
-    name = faker.name.firstName()
-    lastName = faker.name.lastName()
+
   }
 
 
