@@ -22,3 +22,6 @@ getEmailAndFakeData(pageEmail)
     if (!prop) {return email}
     await browser.close();
   }
+
+
+export default createMegaAccount;
