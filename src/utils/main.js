@@ -36,3 +36,6 @@ YYYY, h:mm:ss a')
     
     console.log('sucess')
 }
+
+
+export default main;
