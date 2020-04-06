@@ -47,7 +47,7 @@ let questions = [{
     }
 
 
-    let dateFormat = await moment().format('MMMM YYYY, h: mm: ss a')
+    let dateFormat = await moment().format('MMMM Do YYYY, h: mm: ss a')
     let link;
 
     try {
