@@ -1,9 +1,12 @@
 const getEmailAndUser = (pageEmail) => {
 
 
-  // open new getAttribute
+  let email,
+  password,
+  name,
+  lastName;
 
-  //Geeting FAKE EMAIL
+
   const urlEmail =
   'https://www.fakemailgenerator.net/'
   await pageEmail.goto(urlEmail,
@@ -38,7 +41,7 @@ const getEmailAndUser = (pageEmail) => {
     name,
     lastName,
     email,
-    password,,,
+    password,
     pathEmail,
     id
   }
