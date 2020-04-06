@@ -1,8 +1,5 @@
 import axios from 'axios'
 
-
-
-
 async function getEmailId(pathEmail) {
   try {
     const response = await
