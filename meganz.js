@@ -111,9 +111,10 @@ inquirer
 
 
   async function createMegaAccount(prop) {
+    
     const browser = await puppeteer.launch();
 
-    const pageEmail = await browser.newPage(); // open new getAttribute
+    const pageEmail = await browser.newPage();
     
     //Geeting FAKE EMAIL
 
@@ -131,13 +132,13 @@ inquirer
     
     if (prop){
      password = md5(email)
-    name = faker.name.firstName()
-    lastName = faker.name.lastName()
+     name = faker.name.firstName()
+     lastName = faker.name.lastName()
     }
     else{
-    password = email
-    name = faker.name.firstName()
-    lastName = faker.name.lastName()
+     password = email
+     name = faker.name.firstName()
+     lastName = faker.name.lastName()
     }
     
     
