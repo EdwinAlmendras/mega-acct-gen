@@ -1,4 +1,4 @@
-const getEmailAndFakeData = (pageEmail) => {
+const getEmailAndUser = (pageEmail) => {
     
     
      // open new getAttribute
@@ -39,6 +39,9 @@ el.getAttribute('data-clipboard-text'))
 pathEmail, id}
     
   }
+  
+  
+  export default getEmailAndUser
 
 
 
