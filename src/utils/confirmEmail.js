@@ -19,7 +19,7 @@ async function getEmailId(pathEmail) {
 
 
 
-const confirmEmail = async (pageEmail, pathEmail, id) => {
+const confirmEmail = async (pageEmail, pathEmail) => {
   const id = await getEmailId(pathEmail)
 
   const emailLink =
