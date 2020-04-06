@@ -3,8 +3,6 @@ import md5 from 'md5'
 import axios from 'axios'
 
 
-let pathEmail;
-
 const getEmailAndUser = async(pageEmail, haveHash) => {
 
 
@@ -20,13 +18,19 @@ const getEmailAndUser = async(pageEmail, haveHash) => {
     {
       waitUntil: "networkidle0",
     });
+
+
   email = await pageEmail.$eval('#active-mail',
     el =>
     el.getAttribute('data-clipboard-text'))
 
   //Conditional props
+
+
   name = faker.name.firstName()
   lastName = faker.name.lastName()
+
+
   if (haveHash) {
     password = md5(email)
 
@@ -37,8 +41,10 @@ const getEmailAndUser = async(pageEmail, haveHash) => {
 
 
   //search => //email//@some.com
-  pathEmail = email.replace(/\@(.*)/g,
+  let pathEmail = email.replace(/\@(.*)/g,
     "")
+
+  console.log(pathEmail)
 
   const idEmail = await getEmailId(pathEmail)
 
