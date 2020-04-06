@@ -1,0 +1,44 @@
+{
+  "name": "dl-to-cloud",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon --exec babel-node src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EdwinAlmendras/dl-to-cloud.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EdwinAlmendras/dl-to-cloud/issues"
+  },
+  "homepage": "https://github.com/EdwinAlmendras/dl-to-cloud#readme",
+  "dependencies": {
+    "@babel/preset-env": "^7.9.0",
+    "axios": "^0.19.2",
+    "clipboardy": "^2.2.0",
+    "faker": "^4.1.0",
+    "form-data": "^3.0.0",
+    "inquirer": "^7.1.0",
+    "jimp": "^0.9.5",
+    "jsqr": "^1.2.0",
+    "md5": "^2.2.1",
+    "moment": "^2.24.0",
+    "nodemon": "^2.0.2",
+    "pastebin-js": "^1.0.4",
+    "puppeteer": "^2.1.1",
+    "qr-scanner": "^1.1.1",
+    "qrcode": "^1.4.4",
+    "qrcode-reader": "^1.0.4",
+    "querystring": "^0.2.0",
+    "randomstring": "^1.1.5"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/node": "^7.8.7"
+  }
+}
