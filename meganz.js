@@ -8,6 +8,8 @@ const  moment = require ('moment');
 const  inquirer = require ('inquirer');
 const faker = require('faker')
 //PASTEBIN SETTINGS
+
+
 const API_KEY = '66797adb0b23b070bb4019851a1b1122'
 const USER = 'gxldxm689171'
 const PSW = 'bea54436fabf243c24b767289fbdf05f'
@@ -75,38 +77,6 @@ const run = async () => {
 
 run()
 
-
-/*
-inquirer
-.prompt(questions)
-  .then(async answers => {
-    //:
-    //email:password
-    var megaAccounts = ''
-    const numberOfAccounts = answers.accts
-    const res = answers.question
-
-    console.log('creating mega accounts.. please wait')
-    let accountMega;
-
-    for (i = 0; i < numberOfAccounts; i++) {
-      if (res) {
-        
-        accountMega = await createMegaAccount(true)
-      }
-      else{
-         
-         accountMega = await createMegaAccount(false)
-      }
-      
-      megaAccounts += accountMega + '\n'
-    }
-
-    const date = await moment().format('MMMM Do YYYY, h:mm:ss a')
-    await createPaste(megaAccounts, date)
-    console.log('created paste with this accounts:\n' + megaAccounts)
-  })
-  */
   //IF TRUE CREATE HASH PASSWORDS
 
 
