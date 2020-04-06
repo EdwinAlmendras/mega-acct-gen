@@ -47,12 +47,12 @@ let questions = [{
     }
 
 
-    let date = await moment().format('MMMM Do
+    let dateFormat = await moment().format('MMMM Do
       YYYY, h: mm: ss a')
       let link;
 
       try {
-        link = await createPaste(megaAccounts, date)
+        link = await createPaste(megaAccounts, dateFormat)
       }
       catch(err) {
         console.log('something wrong saving to pastebin')
