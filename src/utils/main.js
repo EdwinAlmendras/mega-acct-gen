@@ -1,7 +1,7 @@
 import inquirer from 'inquirer'
 import moment from 'moment'
 
-import createPaste from './createPaste'
+import createPaste from './pastebin'
 import createMegaAccount from './createMegaAccount'
 
 
