@@ -65,6 +65,8 @@ async function getEmailId(pathEmail) {
     axios.get('https://www.fakemailgenerator.net/api/v1/mailbox/'
       + pathEmail);
     const emails = response.data
+
+    console.log(emails)
     return emails[0].id
   } catch (error) {
     console.error(error);
