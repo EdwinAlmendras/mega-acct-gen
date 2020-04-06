@@ -4,7 +4,7 @@ import megaRegister from './megaRegister'
 import getEmailAndUser from './getEmailAndUser'
 
 
-async function createMegaAccount(prop) {
+async function createMegaAccount(haveHash) {
 
 
   const browser = await puppeteer.launch();
@@ -19,7 +19,7 @@ async function createMegaAccount(prop) {
     password,
     pathEmail,
     id
-  } = await getEmailAndUser(pageEmail)
+  } = await getEmailAndUser(pageEmail, haveHash)
 
   await megaRegister(browser)
 
