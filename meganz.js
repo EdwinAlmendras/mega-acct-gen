@@ -21,22 +21,62 @@ pastebin = new PastebinAPI({
 });
 
 
-
-
 let email, password, name, lastName;
 
-inquirer
-.prompt([{
+
+let questions = [{
   type: "number",
   name: "accts",
   message: "Which accounts can you create?",
   default: 1
   },
-  {
+   {
     type: "confirm",
     name: "question",
     message: "You can hash password(email)?"
-  }])
+  }]
+  
+  
+const run = async () => {
+  
+  const answers = await inquirer.prompt(questions)
+  
+  
+  
+  const numberOfAccounts = answers.accts
+  const res = answers.question
+
+  let megaAccounts = '';
+  let accountMega;
+  
+  console.log('creating mega accounts.. please wait')
+  
+  
+  for (i = 0; i < numberOfAccounts; i++) {
+    
+      if (res) {  
+        accountMega = await createMegaAccount(true)
+      }
+      else {  
+        accountMega = await createMegaAccount(false)  
+        
+      }
+      
+      megaAccounts += accountMega + '\n'
+  }
+
+    const date = await moment().format('MMMM Do YYYY, h:mm:ss a')
+    
+    await createPaste(megaAccounts, date)
+    
+    
+    console.log('sucess')
+}
+
+
+
+inquirer
+.prompt(questions)
   .then(async answers => {
     //:
     //email:password
@@ -135,10 +175,11 @@ inquirer
       {
         waitUntil: "networkidle0",
       });
-
-
-    return email+":"+password
-
+      
+      
+      
+    if (prop) {return email+":"+password}
+    if (!prop) {return email}
     await browser.close();
   }
 
