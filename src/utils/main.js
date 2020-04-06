@@ -34,7 +34,7 @@ let questions = [{
     console.log('creating mega accounts.. please wait')
 
 
-    for (i = 0; i < numberOfAccounts; i++) {
+    for (let i = 0; i < numberOfAccounts; i++) {
 
       if (res) {
         accountMega = await
