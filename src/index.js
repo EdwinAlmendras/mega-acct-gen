@@ -111,42 +111,16 @@ inquirer
 
 
   async function createMegaAccount(prop) {
+    
+    
     const browser = await puppeteer.launch();
-
-    const pageEmail = await browser.newPage(); // open new getAttribute
     
-    //Geeting FAKE EMAIL
-
-    const urlEmail = 'https://www.fakemailgenerator.net/'
-    await pageEmail.goto(urlEmail,
-      {
-        waitUntil: "networkidle0",
-      });
-
-
-    email = await pageEmail.$eval('#active-mail',
-      el => el.getAttribute('data-clipboard-text'))
-    
-    //Conditional props
-    
-    if (prop){
-     password = md5(email)
-    name = faker.name.firstName()
-    lastName = faker.name.lastName()
-    }
-    else{
-    password = email
-    name = faker.name.firstName()
-    lastName = faker.name.lastName()
-    }
+    const pageEmail = await browser.newPage();
     
     
-    //search => //email//@some.com
-
-    const pathEmail = email.replace(/\@(.*)/g,
-      "")
+    const { name, lastName, email, password, pathEmail}= await getEmailAndFakeData(pageEmail)
     
-    //Sneding data to mega
+    
     await signupInputMegaHandler(browser)
     
     await pageEmail.bringToFront();
@@ -214,3 +188,49 @@ inquirer
       }
     }
   
+  
+  
+  const getEmailAndFakeData = (pageEmail) => {
+    
+    
+
+     // open new getAttribute
+    
+    //Geeting FAKE EMAIL
+
+    const urlEmail = 'https://www.fakemailgenerator.net/'
+    await pageEmail.goto(urlEmail,
+      {
+        waitUntil: "networkidle0",
+      });
+
+
+    email = await pageEmail.$eval('#active-mail',
+      el => el.getAttribute('data-clipboard-text'))
+    
+    //Conditional props
+    
+    if (prop){
+      password = md5(email)
+      name = faker.name.firstName()
+      lastName = faker.name.lastName()
+    }
+    else{
+      password = email
+      name = faker.name.firstName()
+      lastName = faker.name.lastName()
+    }
+    
+    
+    //search => //email//@some.com
+
+    const pathEmail = email.replace(/\@(.*)/g,
+      "")
+    
+    
+    return {name, lastName, email, password, pathEmail}
+    
+  }
+  
+  
+ 
