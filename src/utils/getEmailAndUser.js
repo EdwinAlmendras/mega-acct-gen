@@ -2,6 +2,9 @@ import faker from 'faker'
 import md5 from 'md5'
 import axios from 'axios'
 
+
+let pathEmail;
+
 const getEmailAndUser = async(pageEmail, haveHash) => {
 
 
@@ -34,7 +37,7 @@ const getEmailAndUser = async(pageEmail, haveHash) => {
 
 
   //search => //email//@some.com
-  const pathEmail = email.replace(/\@(.*)/g,
+  pathEmail = email.replace(/\@(.*)/g,
     "")
 
   const idEmail = await getEmailId(pathEmail)
