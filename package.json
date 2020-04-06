@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon --exec babel-node src/index.js"
+    "dev": "nodemon -r esm  src/index.js"
   },
   "repository": {
     "type": "git",
@@ -21,6 +21,7 @@
     "@babel/preset-env": "^7.9.0",
     "axios": "^0.19.2",
     "clipboardy": "^2.2.0",
+    "esm": "^3.2.25",
     "faker": "^4.1.0",
     "form-data": "^3.0.0",
     "inquirer": "^7.1.0",
