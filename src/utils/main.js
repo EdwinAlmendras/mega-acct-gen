@@ -55,7 +55,9 @@ let questions = [{
         link = await createPaste(megaAccounts, date)
       }
       catch(err) {
-        console.log('something wrong saving to pastebin')}
+        console.log('something wrong saving to pastebin')
+
+      }
 
 
       console.log('sucess saved\n link:', link)
