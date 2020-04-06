@@ -1,4 +1,4 @@
-const getEmailAndUser = (pageEmail) => {
+const getEmailAndUser = async(pageEmail) => {
 
 
   let email,
