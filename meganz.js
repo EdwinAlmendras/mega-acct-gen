@@ -73,8 +73,10 @@ const run = async () => {
     console.log('sucess')
 }
 
+run()
 
 
+/*
 inquirer
 .prompt(questions)
   .then(async answers => {
@@ -104,7 +106,7 @@ inquirer
     await createPaste(megaAccounts, date)
     console.log('created paste with this accounts:\n' + megaAccounts)
   })
-  
+  */
   //IF TRUE CREATE HASH PASSWORDS
 
 
