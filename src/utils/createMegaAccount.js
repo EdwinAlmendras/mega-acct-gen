@@ -25,10 +25,10 @@ async function createMegaAccount(haveHash) {
 
 
   if (haveHash) {
-    return email+":"+password
+    return user.email+":"+user.password
   }
   if (!haveHash) {
-    return email
+    return user.email
   }
   await browser.close();
 }
