@@ -1,4 +1,4 @@
-const getEmailAndUser = async(pageEmail) => {
+const getEmailAndUser = async(pageEmail, haveHash) => {
 
 
   let email,
@@ -19,7 +19,7 @@ const getEmailAndUser = async(pageEmail) => {
 
   //Conditional props
 
-  if (prop) {
+  if (haveHash) {
     password = md5(email)
     name = faker.name.firstName()
     lastName = faker.name.lastName()
