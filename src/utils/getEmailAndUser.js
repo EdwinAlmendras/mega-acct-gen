@@ -1,6 +1,5 @@
 import faker from 'faker'
 import md5 from 'md5'
-import axios from 'axios'
 
 
 const getEmailAndUser = async(pageEmail, haveHash) => {
@@ -44,33 +43,15 @@ const getEmailAndUser = async(pageEmail, haveHash) => {
   let pathEmail = email.replace(/\@(.*)/g,
     "")
 
-  console.log(pathEmail)
-
-  const idEmail = await getEmailId(pathEmail)
-
-
   return {
     name,
     lastName,
     email,
     password,
     pathEmail,
-    idEmail
+
   }
 
-}
-async function getEmailId(pathEmail) {
-  try {
-    const response = await
-    axios.get('https://www.fakemailgenerator.net/api/v1/mailbox/'
-      + pathEmail);
-    const emails = response.data
-
-    console.log(emails)
-    return emails[0].id
-  } catch (error) {
-    console.error(error);
-  }
 }
 
 
