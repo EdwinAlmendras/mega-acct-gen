@@ -35,3 +35,6 @@ pageEmail.$eval('#bottom-button',
       
     
   }
+
+
+export default confirmEmail;
