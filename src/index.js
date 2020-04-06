@@ -1,19 +1,19 @@
-const puppeteer = require("puppeteer");
-const fs = require("fs");
-const axios = require("axios");
-const md5 = require('md5');
-const randomstring = require("randomstring");
-const  PastebinAPI = require ('pastebin-js');
-const  moment = require ('moment');
-const  inquirer = require ('inquirer');
-const faker = require('faker')
-//PASTEBIN SETTINGS
+
+
+import faker from 'faker'
+import fs from 'fs'
+import axios from 'axios'
+import md5 from 'md5'
+import PastebinAPI from 'pastebin-js'
+import moment from 'moment'
+import inquirer from 'inquirer'
+import puppeteer from 'puppeteer'
+
 const API_KEY = '66797adb0b23b070bb4019851a1b1122'
 const USER = 'gxldxm689171'
 const PSW = 'bea54436fabf243c24b767289fbdf05f'
 
-
-pastebin = new PastebinAPI({
+let pastebin = new PastebinAPI({
   'api_dev_key': API_KEY,
   'api_user_name': USER,
   'api_user_password': PSW
