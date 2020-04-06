@@ -15,7 +15,7 @@ const USER = 'gxldxm689171'
 const PSW = 'bea54436fabf243c24b767289fbdf05f'
 
 
-pastebin = new PastebinAPI({
+let pastebin = new PastebinAPI({
   'api_dev_key': API_KEY,
   'api_user_name': USER,
   'api_user_password': PSW
