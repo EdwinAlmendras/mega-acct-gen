@@ -1,6 +1,11 @@
 const megaRegister = async (browser, user)=> {
 
-  console.log(user)
+  const {
+    name,
+    lastName,
+    email,
+    password
+  } = user
 
 
 
