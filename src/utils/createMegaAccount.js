@@ -12,15 +12,12 @@ async function createMegaAccount(haveHash) {
   const pageEmail = await browser.newPage();
 
 
-  const {
-    name,
-    lastName,
-    email,
-    password,
+  const user,
+  {
     pathEmail
   } = await getEmailAndUser(pageEmail, haveHash)
 
-  await megaRegister(browser)
+  await megaRegister(browser, user)
 
 
   await pageEmail.bringToFront();
