@@ -24,10 +24,10 @@ async function createMegaAccount(haveHash) {
   await confirmEmail(pageEmail, user.pathEmail)
 
 
-  if (prop) {
+  if (haveHash) {
     return email+":"+password
   }
-  if (!prop) {
+  if (!haveHash) {
     return email
   }
   await browser.close();
