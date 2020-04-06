@@ -17,11 +17,11 @@ async function createMegaAccount(haveHash) {
     lastName,
     email,
     password,
-    pathEmail,
-    id
+    pathEmail
   } = await getEmailAndUser(pageEmail, haveHash)
 
   await megaRegister(browser)
+
 
   await pageEmail.bringToFront();
   await pageEmail.waitFor(2000)
