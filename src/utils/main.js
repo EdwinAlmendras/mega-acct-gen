@@ -1,4 +1,5 @@
 import inquirer from 'inquirer'
+import moment from 'moment'
 
 import createPaste from './createPaste'
 import createMegaAccount from './createMegaAccount'
@@ -8,8 +9,12 @@ const main = async () => {
 
   const answers = await inquirer.prompt(questions)
 
-  const numberOfAccounts = answers.accts
-  const res = answers.question
+
+  //Answers
+  let numberOfAccounts = answers.accts
+  let res = answers.question
+
+
   let megaAccounts = '';
   let accountMega;
 
@@ -24,18 +29,23 @@ const main = async () => {
     } else {
       accountMega = await
       createMegaAccount(false)
-
     }
-
     megaAccounts += accountMega + '\n'
   }
-  const date = await moment().format('MMMM Do
+
+
+  let date = await moment().format('MMMM Do
     YYYY, h: mm: ss a')
+    let link;
 
-    await createPaste(megaAccounts, date)
+    try {
+      link = await createPaste(megaAccounts, date)
+    }
+    catch(err) {
+      console.log('something wrong saving to pastebin')}
 
 
-    console.log('sucess')
+    console.log('sucess saved\n link:', link)
   }
 
 
