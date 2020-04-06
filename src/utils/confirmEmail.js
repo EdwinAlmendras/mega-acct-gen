@@ -19,8 +19,7 @@ async function getEmailId(pathEmail) {
 
 
 
-const confirmEmail = async (pageEmail, pathEmail, id)
-=> {
+const confirmEmail = async (pageEmail, pathEmail, id) => {
   const id = await getEmailId(pathEmail)
 
   const emailLink =
@@ -37,8 +36,6 @@ const confirmEmail = async (pageEmail, pathEmail, id)
     {
       waitUntil: "networkidle0",
     });
-
-
 }
 
 
