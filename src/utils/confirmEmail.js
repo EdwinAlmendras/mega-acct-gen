@@ -11,7 +11,7 @@ async function getEmailId(pathEmail) {
 }
 
 
-const confirmEmail = (pageEmail, pathEmail, id)
+const confirmEmail = async (pageEmail, pathEmail, id)
 => {
 
   const emailLink =
