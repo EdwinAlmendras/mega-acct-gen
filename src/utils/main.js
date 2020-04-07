@@ -1,5 +1,7 @@
 import inquirer from 'inquirer'
 import moment from 'moment'
+import chalk from 'chalk'
+
 
 import createPaste from './pastebin'
 import createMegaAccount from './createMegaAccount'
@@ -17,6 +19,7 @@ let questions = [{
     name: "question",
     message: "You can hash password(email)?"
   }]
+
 
   const main = async () => {
 
@@ -43,24 +46,20 @@ let questions = [{
         accountMega = await
         createMegaAccount(false)
       }
+
       megaAccounts += accountMega + '\n'
     }
 
-
     let dateFormat = await moment().format('MMMM Do YYYY, h: mm: ss a')
-    let link;
 
     try {
       await createPaste(megaAccounts, dateFormat)
     }
     catch(err) {
-      console.log('something wrong saving to pastebin')
-
+      console.log(chalk.red('something wrong saving to pastebin'))
     }
 
-
-    console.log('sucess saved\n link:', link)
+    console.log(chalk.green('sucess saved'))
   }
-
 
   export default main;
