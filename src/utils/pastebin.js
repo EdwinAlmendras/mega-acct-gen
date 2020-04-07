@@ -1,5 +1,5 @@
 import PastebinAPI from 'pastebin-js'
-impirt chalk from 'chalk'
+import chalk from 'chalk'
 
 const API_KEY = '66797adb0b23b070bb4019851a1b1122'
 const USER = 'gxldxm689171'
