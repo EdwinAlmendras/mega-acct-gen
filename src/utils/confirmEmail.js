@@ -13,7 +13,6 @@ async function getEmailId(pathEmail) {
 }
 
 
-
 const confirmEmail = async (pageEmail, pathEmail) => {
   const id = await getEmailId(pathEmail)
 
