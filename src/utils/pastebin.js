@@ -1,5 +1,5 @@
 import PastebinAPI from 'pastebin-js'
-
+impirt chalk from 'chalk'
 
 const API_KEY = '66797adb0b23b070bb4019851a1b1122'
 const USER = 'gxldxm689171'
@@ -13,20 +13,22 @@ let pastebin = new PastebinAPI({
 });
 
 
-function createPaste(data, title) {
-  //data, title
-  pastebin
-  .createPaste(data,
-    title,
-    null,
-    2)
-  .then(function (data) {
-    console.log('sucessfully create paste')
-  })
-  .fail(function (err) {
-    // Something went wrong
-    console.log(err);
-  })
+const createPaste = async (data, title) => {
+ 
+ 
+ let link;
+  
+ try {
+ link = await pastebin.createPaste(data, title, null, 2)
+ }
+ 
+ catch(err){
+   console.log(chalk.red('something wrong with pastebin'))
+ }
+ 
+ 
+ return link;
+ 
 }
 
 
