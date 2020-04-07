@@ -58,8 +58,6 @@ let questions = [{
     catch(err) {
       console.log(chalk.red('something wrong saving to pastebin'))
     }
-
-    console.log(chalk.green('sucess saved'))
   }
 
   export default main;
