@@ -4,7 +4,6 @@ import md5 from 'md5'
 
 const getEmailAndUser = async(pageEmail, haveHash) => {
 
-
   let email,
   password,
   name,
