@@ -1,6 +1,8 @@
 import axios from 'axios'
 
 async function getEmailId(pathEmail) {
+  
+  
   try {
     const response = await
     axios.get('https://www.fakemailgenerator.net/api/v1/mailbox/'
@@ -14,6 +16,9 @@ async function getEmailId(pathEmail) {
 
 
 const confirmEmail = async (pageEmail, pathEmail) => {
+  
+  
+  console.log('confirming email')
   const id = await getEmailId(pathEmail)
 
   const emailLink =
