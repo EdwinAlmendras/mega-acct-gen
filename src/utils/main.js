@@ -33,6 +33,7 @@ let questions = [{
 
     let megaAccounts = '';
     let accountMega;
+    let link;
 
     console.log('creating mega accounts.. please wait')
 
@@ -53,11 +54,14 @@ let questions = [{
     let dateFormat = await moment().format('MMMM Do YYYY, h: mm: ss a')
 
     try {
-      await createPaste(megaAccounts, dateFormat)
+      link = await createPaste(megaAccounts, dateFormat)
     }
     catch(err) {
       console.log(chalk.red('something wrong saving to pastebin'))
     }
+    
+    
+    console.log(chalk.green('sucess saved accounts into pastebin link: ' + link))
   }
 
   export default main;
