@@ -1,3 +1,6 @@
+import chalk from 'chalk'
+
+
 const megaRegister = async (browser, user)=> {
 
   const {
@@ -8,6 +11,7 @@ const megaRegister = async (browser, user)=> {
   } = user
 
 
+  console.log(chalk.blue('registering in to mega.nz'))
 
   const page = await browser.newPage();
   const url = "https://mega.nz/register";
@@ -19,8 +23,6 @@ const megaRegister = async (browser, user)=> {
 
 
   await page.bringToFront();
-
-  console.log(`starting writting data to mega.nz/register`)
 
   await page.type("input[name='register-name2']",
     name)
@@ -36,12 +38,7 @@ const megaRegister = async (browser, user)=> {
   await page.click("div[class='understand-check checkboxOff checkbox'] input")
   await page.click("div[class='register-check checkboxOff checkbox'] input")
 
-
   await page.click("div[class='big-red-button height-48 register-button right button active']")
-
-  console.log(`registering ... => MEGA.nz`)
-
-
 }
 
 
