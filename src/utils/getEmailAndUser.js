@@ -1,7 +1,6 @@
 import faker from 'faker'
 import md5 from 'md5'
 
-
 const getEmailAndUser = async(pageEmail, haveHash) => {
 
   let email,
@@ -9,25 +8,22 @@ const getEmailAndUser = async(pageEmail, haveHash) => {
   name,
   lastName;
 
-
-  const urlEmail =
+  //GETTING TEMP EMAIL
+  const url =
   'https://www.fakemailgenerator.net/'
-  await pageEmail.goto(urlEmail,
+  await pageEmail.goto(url,
     {
       waitUntil: "networkidle0",
     });
-
 
   email = await pageEmail.$eval('#active-mail',
     el =>
     el.getAttribute('data-clipboard-text'))
 
-  //Conditional props
-
+  //GENERATING FAKE DATA
 
   name = faker.name.firstName()
   lastName = faker.name.lastName()
-
 
   if (haveHash) {
     password = md5(email)
@@ -36,7 +32,6 @@ const getEmailAndUser = async(pageEmail, haveHash) => {
     password = email
 
   }
-
 
   //search => //email//@some.com
   let pathEmail = email.replace(/\@(.*)/g,
@@ -52,7 +47,5 @@ const getEmailAndUser = async(pageEmail, haveHash) => {
   }
 
 }
-
-
 
 export default getEmailAndUser
